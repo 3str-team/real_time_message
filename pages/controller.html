@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/controller.css" />
+    <title>Controller</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="error"></div>
+      <input type="text" class="msg" />
+      <input type="password" class="key" placeholder="Ключ" />
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/key.js"></script>
+    <script src="/js/controller.js"></script>
+    <script>
+      let socket = io();
+
+      input.oninput = () => {
+        socket.emit("message", { key, value: input.value });
+      };
+
+      socket.on("key error", (isError) => {
+        const error = document.querySelector(".error");
+        if (isError) {
+          if (!error.classList.contains("active")) {
+            error.classList.add("active");
+          }
+          error.textContent = "Неверный ключ";
+        } else {
+          if (error.classList.contains("active")) {
+            error.classList.remove("active");
+          }
+          error.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>

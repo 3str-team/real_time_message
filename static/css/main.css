@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: #252525;
+  display: grid;
+  place-items: center;
+}
+
+.message {
+  max-width: 90%;
+  color: white;
+  font-size: 20px;
+  font-family: monospace;
+  padding: 20px 30px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background: #222;
+  text-align: center;
+}
